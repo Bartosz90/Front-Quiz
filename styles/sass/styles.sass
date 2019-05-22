@@ -1,0 +1,297 @@
+$main-yellow: #FFE400;
+$main-orange: #FF652F;
+$hover-orange: #f94304;
+$border-green: #14A76C; 
+$hover-green: #008952;
+=centerElement()
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+=hover()
+    cursor: pointer 
+    background-color: $hover-orange
+    border-color: $hover-green
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box 
+*::selection
+    background-color: $border-green
+
+body 
+    background-color: black
+    font-family: 'Baloo Bhai', cursive
+
+.start-game, .win, .loss, .correct-answer
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh 
+    background-color: black
+    letter-spacing: 2px
+    transition: .6s linear
+    border-bottom: 4px solid $border-green
+    z-index: 1
+    h1 
+        position: absolute
+        top: 30%
+        left: 50% 
+        transform: translateX(-50%)
+        font-size: 60px
+        text-align: center
+        color: $main-orange
+        @media (orientation: landscape) and (max-width:1366px)
+            top: 20% 
+            padding: 0 15px
+            font-size: 90px
+            width: 100%
+        @media (orientation: landscape) and (max-width:830px)
+            font-size: 60px
+            top: 15% 
+        @media (orientation: landscape) and (max-width:720px)
+            font-size: 50px
+        @media (orientation: portrait) and (max-width: 1024px)
+            top: 20%
+            font-size: 80px
+        @media (max-width: 600px)
+            top: 20%
+            font-size: 50px
+            line-height: 110% 
+    .start-btn, .reset-btn, .next-btn
+        +centerElement()
+        top: 60%
+        padding: 5px 15px
+        text-align: center
+        font-size: 40px
+        text-transform: uppercase
+        background-color: $main-orange
+        border: 3px solid $border-green
+        transition: .3s linear
+        animation: shake 4s linear infinite
+        @media (orientation: landscape) and (max-width:1366px)
+            font-size: 60px
+        @media (orientation: landscape) and (max-width:830px)
+            top: 80%
+            font-size: 40px
+        @media (orientation: landscape) and (max-width:720px)
+            padding: 1px 15px
+        @media (orientation: portrait) and (max-width: 1024px)
+            top: 70%
+            font-size: 60px
+        @media (orientation: portrait) and (max-width: 450px)
+            font-size: 40px
+        @media (max-width: 400px)
+            font-size: 40px
+            padding: 1px 15px
+    .start-btn:hover, .reset-btn:hover, .next-btn:hover
+            +hover()
+
+.loss
+    h1 
+        top: 10% 
+    .reset-btn
+        top: 80% 
+        text-align: center
+        line-height: 45px
+    p   
+        position: absolute
+        top: 40%
+        left: 50% 
+        transform: translateX(-50%)
+        font-size: 20px
+        text-align: center
+        color: $main-orange 
+
+@keyframes shake
+            1%
+                transform: translate(-55%,-50%)
+            4%
+                transform: translate(-45%,-50%)
+            7%
+                transform: translate(-55%,-50%)
+            10%
+                transform: translate(-45%,-50%)
+            13%
+                transform: translate(-50%,-50%)
+            100%
+                transform: translate(-50%,-50%)
+.start-game.hide
+    top: -110%
+.win, .loss, .correct-answer
+    transform: scale(0)
+    transition: .2s linear
+.win.active, .loss.active, .correct-answer.active
+    transform: scale(1)
+.win 
+    .animate
+        position: absolute
+        top: 10%
+        left: 10%
+        width: 1px
+        height: 1px
+        background-color: red
+        border-radius: 50%
+        opacity: 1
+        transition: .3s linear
+        animation: fireworks 1.2s linear infinite
+        z-index: -1
+    .animate:nth-last-child(1)
+        top: 20%
+        left: 80%
+        background-color: blue
+        animation-delay: 1.5s
+    .animate:nth-last-child(2)
+        top: 45%
+        left: 30%
+        background-color: green
+        animation-delay: 2s
+    .animate:nth-last-child(3)
+        top: 50%
+        left: 95%
+        background-color: orange
+        animation-delay: .5s
+    .animate:nth-last-child(4)
+        top: 90%
+        left: 90%
+        background-color: purple
+        animation-delay: 2.5s
+    .animate:nth-last-child(5)
+        top: 85%
+        left: 15%
+        background-color: yellow
+        animation-delay: 1s
+    .animate:nth-last-child(6)
+        top: 60%
+        left: 65%
+        background-color: PINK
+        animation-delay: 3s
+@keyframes fireworks 
+    100%
+        opacity: 0
+        transform: scale(300)
+.wrapper
+    position: relative
+    max-width: 1200px
+    width: 100%
+    height: 100vh
+    margin: 0 auto
+    padding: 4%
+    .question
+        position: relative
+        width: 100%
+        height: 40%
+        border: 5px solid $border-green
+        background-color: $main-orange
+        text-align: center
+        border-radius: 1%
+        overflow: hidden
+        @media (max-width:1366px)
+            width: 100% 
+            margin: 0 auto
+        h2
+            width: 80%
+            height: 20%
+            margin: 0 auto
+            padding: 5px
+            border-bottom: 4px solid $border-green
+            font-size: 40px
+            @media (orientation: landscape) and (max-width:1024px)
+                padding-bottom: 7%
+            @media (orientation: landscape) and (max-width:830px)
+                padding: 5px
+                font-size: 26px
+                border: none
+            @media (orientation: portrait) and (max-width: 1024px)
+                padding-top: 2%
+            @media (orientation: portrait) and (max-width: 450px)
+                font-size: 30px
+            @media (orientation: portrait) and (max-width: 450px)
+                    font-size: 22px
+        h3 
+            width: 100%
+            height: 80%
+            padding: 20px 
+            font-size: 40px
+            @media (orientation: landscape) and (max-width:1024px)
+                font-size: 32px
+            @media (orientation: landscape) and (max-width:830px)
+                font-size: 22px
+            @media (orientation: landscape) and (max-width:720px)
+                font-size: 18px
+            @media (max-width: 600px)
+                font-size: 15px
+            @media (orientation: portrait) and (max-width: 450px)
+                font-size: 24px
+            @media (orientation: portrait) and (max-width: 450px)
+                    font-size: 18px 
+
+
+    .answers
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-content: space-around
+        width: 100%
+        height: 60% 
+        @media (orientation: portrait)
+            justify-content: space-around
+        .answer
+            position: relative
+            flex-basis: 49%
+            height: 45%
+            padding: 20px
+            background-color: $main-orange
+            border: 5px solid $border-green
+            border-radius: 1%
+            transition: .3s linear
+            &:hover
+                +hover()
+            @media (orientation: landscape) and (max-width:1366px)
+                flex-basis: 47%
+                height: 47%
+            @media (orientation: portrait) and (max-width: 1024px)
+                flex-basis: 100%
+                height: 23%
+            p 
+                +centerElement()
+                font-size: 30px
+                text-transform: uppercase
+                @media (orientation: landscape) and (max-width:1366px)
+                    font-size: 45px
+                @media (orientation: landscape) and (max-width:1024px)
+                    font-size: 40px
+                @media (orientation: landscape) and (max-width:830px)
+                    font-size: 24px
+                @media (orientation: landscape) and (max-width:720px)
+                    font-size: 17px
+                @media (orientation: portrait) and (max-width: 1024px)
+                    font-size: 38px
+                @media (orientation: portrait) and (max-width: 768px)
+                    font-size: 28px
+                @media (orientation: portrait) and (max-width: 450px)
+                    font-size: 22px
+                @media (orientation: portrait) and (max-width: 320px)
+                    font-size: 18px
+
+.animateDiv
+    position: absolute
+    top: 0
+    right: 0
+    height: 100%
+    width: 200% 
+    background-image: linear-gradient(to right, rgba(255,101,47,0), rgba(255,101,47,1), rgba(255,101,47,1))
+    opacity: 0
+.animateDiv.animate
+    animation: moveRight 2s linear  
+@keyframes moveRight
+    0%
+        opacity: 1
+    100%
+        right: -200%   
+        opacity: 1     
+  
+       
+        
+
