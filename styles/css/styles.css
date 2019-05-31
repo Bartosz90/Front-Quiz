@@ -491,7 +491,6 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-size: 30px;
-  text-transform: uppercase;
 }
 
 @media (orientation: landscape) and (max-width: 1366px) {
