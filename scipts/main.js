@@ -19,7 +19,7 @@ const resetBtns = document.querySelectorAll('.reset-btn');
 })
 
 const gameData = {
-    questionAmount: questions.length,
+    questionAmount: 10,
     questionCounter: 1,
     correctQuestion: 0,
 }
